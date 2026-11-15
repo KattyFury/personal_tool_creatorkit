@@ -94,3 +94,7 @@ python -X utf8 scripts/x-archive.py <archive>/data out --since 2025-01-01
 | `public/xarchive.js` | Đọc archive X trong trình duyệt |
 | `public/img.js` | Xử lý ảnh bằng canvas |
 | `schema.sql` | Bảng D1 |
+
+## License
+
+[MIT](LICENSE) – dùng, sửa, chia sẻ thoải mái.
