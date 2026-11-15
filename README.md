@@ -32,6 +32,14 @@ npx wrangler secret put SESSION_SECRET     # chuỗi ngẫu nhiên dài bất k�
 npm run deploy                             # in ra link https://creator-kit.<tên>.workers.dev
 ```
 
+`secret put` hỏi giá trị – gõ tay vào terminal. **Đừng pipe giá trị vào lệnh này trên Windows PowerShell** (vd `"abc" | npx wrangler secret put …`): giá trị bị lệch, đăng nhập sẽ báo sai mật khẩu.
+Cần chạy tự động (script, Claude Code) thì ghi 3 secret vào 1 file JSON rồi dùng `secret bulk`, xong xoá file:
+
+```bash
+# secrets.json: {"ANTHROPIC_API_KEY":"...","HUB_PASSWORD":"...","SESSION_SECRET":"..."}
+npx wrangler secret bulk secrets.json
+```
+
 Muốn dùng tên miền riêng: bỏ comment dòng `routes` trong `wrangler.jsonc`, sửa thành tên miền của bạn (tên miền phải nằm trong Cloudflare), deploy lại.
 
 ## Lần đầu dùng
