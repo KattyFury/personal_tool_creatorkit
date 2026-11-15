@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "creator-kit",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    // `npx wrangler d1 create creator-kit` → dán database_id vào đây
+    { "binding": "DB", "database_name": "creator-kit", "database_id": "DIEN_DATABASE_ID" }
+  ],
+  // Tên miền riêng (tuỳ chọn) – bỏ comment và sửa:
+  // "routes": [{ "pattern": "kit.tenmien.com", "custom_domain": true }],
+  "observability": { "enabled": true }
+  // Secrets (npx wrangler secret put <TÊN>): ANTHROPIC_API_KEY, HUB_PASSWORD, SESSION_SECRET
+}
